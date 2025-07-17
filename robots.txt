@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xbox-giveaway.netlify.app/sitemap.xml
