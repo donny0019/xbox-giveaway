@@ -6,15 +6,18 @@
     <title>🏆 Win Xbox One Mortal Kombat 11 Bundle! Official 2025 Giveaway | Free Next-Gen Console Contest</title>
     <meta name="description" content="🔥 Official 2025 Xbox One X Mortal Kombat 11 Ultimate Bundle Giveaway! Enter FREE for your chance to win a limited edition console, game, & controller. No purchase needed. Secure your entry now!">
     <meta name="keywords" content="xbox giveaway 2025, win xbox one x, mortal kombat 11 ultimate bundle, free xbox contest, game console giveaway, official xbox giveaway, next-gen console, free games">
-    <link rel="canonical" href="https://yourdomain.com/xbox-giveaway">
+    <link rel="canonical" href="https://xbox-giveaway.netlify.app/">
 
     <meta property="og:title" content="🎁 Win the Xbox One MK11 Ultimate Bundle! Official 2025 Free Giveaway">
     <meta property="og:description" content="Enter the official giveaway to win a limited edition Xbox One X with Mortal Kombat 11 Ultimate Edition. No purchase needed! Final chance to win.">
     <meta property="og:image" content="https://i.imgur.com/w9mi4EF.jpg">
-    <meta property="og:url" content="https://yourdomain.com/xbox-giveaway">
+    <meta property="og:url" content="https://xbox-giveaway.netlify.app/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@YourTwitterHandle"> <meta name="twitter:creator" content="@YourTwitterHandle"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="twitter:site" content="@YourTwitterHandle"> <!-- IMPORTANT: Replace with your actual Twitter handle -->
+    <meta name="twitter:creator" content="@YourTwitterHandle"> <!-- IMPORTANT: Replace with your actual Twitter handle -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,17 +30,19 @@
         "description": "Enter the official 2025 giveaway to win a limited edition Xbox One X with Mortal Kombat 11 Ultimate Edition. Prize includes the console, game, and a custom controller. No purchase is necessary.",
         "startDate": "2025-07-17T00:00:00-00:00",
         "endDate": "2025-12-31T23:59:59-00:00",
-        "url": "https://yourdomain.com/xbox-giveaway",
+        "url": "https://xbox-giveaway.netlify.app/",
         "image": "https://i.imgur.com/w9mi4EF.jpg",
         "sponsor": {
             "@type": "Organization",
             "name": "Your Company Name",
-            "url": "https://yourdomain.com" },
+            "url": "https://xbox-giveaway.netlify.app/"
+        },
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD",
-            "url": "https://yourdomain.com/xbox-giveaway" }
+            "url": "https://xbox-giveaway.netlify.app/"
+        }
     },
     {
         "@context": "https://schema.org",
@@ -445,7 +450,8 @@
                     const emailInput = document.getElementById('email');
 
                     if (emailInput.value.trim() === '' || !emailInput.checkValidity()) {
-                        alert('Please enter a valid email address.');
+                        // Replaced alert with a custom message box for better UX
+                        showCustomAlert('Please enter a valid email address.');
                         return;
                     }
                     
@@ -462,6 +468,60 @@
                         }, 50);
                     }, 500);
                 });
+            }
+
+            // Custom Alert Box Implementation (replaces browser's alert)
+            function showCustomAlert(message) {
+                let alertBox = document.getElementById('customAlertBox');
+                if (!alertBox) {
+                    alertBox = document.createElement('div');
+                    alertBox.id = 'customAlertBox';
+                    alertBox.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: var(--bg-light);
+                        color: var(--text-light);
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                        z-index: 1000;
+                        text-align: center;
+                        border: 1px solid var(--primary-accent);
+                        max-width: 300px;
+                        font-family: var(--font-body);
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    `;
+                    const alertMessage = document.createElement('p');
+                    alertMessage.id = 'customAlertMessage';
+                    alertMessage.style.marginBottom = '15px';
+                    alertBox.appendChild(alertMessage);
+
+                    const closeButton = document.createElement('button');
+                    closeButton.innerText = 'OK';
+                    closeButton.style.cssText = `
+                        background-color: var(--primary-accent);
+                        color: var(--text-light);
+                        border: none;
+                        padding: 8px 20px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        font-weight: 700;
+                        transition: background-color 0.2s ease;
+                    `;
+                    closeButton.onmouseover = () => closeButton.style.backgroundColor = '#6A1BBF';
+                    closeButton.onmouseout = () => closeButton.style.backgroundColor = 'var(--primary-accent)';
+                    closeButton.onclick = () => {
+                        alertBox.style.opacity = '0';
+                        setTimeout(() => alertBox.remove(), 300);
+                    };
+                    alertBox.appendChild(closeButton);
+                    document.body.appendChild(alertBox);
+                }
+                document.getElementById('customAlertMessage').innerText = message;
+                alertBox.style.opacity = '1';
             }
         });
     </script>
